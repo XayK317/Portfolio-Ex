@@ -75,13 +75,13 @@ nav ul li a:hover {
 }
 
 .featured h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: normal;
   letter-spacing: 1px;
 }
 
 .featured p {
-  font-size: 14px;
+  font-size: 20px;
   max-width: 700px;
   margin: 0 auto 40px;
   color: #333;
