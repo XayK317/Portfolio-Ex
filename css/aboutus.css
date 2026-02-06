@@ -31,7 +31,7 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 25px;
   color: #00b4b4;
   transition: color 0.3s ease;
 }
@@ -120,7 +120,7 @@ nav ul li a:hover {
 }
 
 .about-image img {
-  width: 800px;
+  width: 500px;
   height: auto;
   max-width: 100%;
   border-radius: 8px;
@@ -131,7 +131,7 @@ nav ul li a:hover {
 }
 
 .about-paragraph {
-  font-size: 14px;
+  font-size: 20px;
   max-width: 700px;
   margin: 0 auto 20px;
   line-height: 1.6;
