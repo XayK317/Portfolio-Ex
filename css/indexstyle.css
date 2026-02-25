@@ -1,162 +1,301 @@
+/* --- UNIVERSAL RESET & SMOOTH SCROLL --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body,
 html {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  scroll-behavior: smooth;
+  /* This creates a "snap" effect to keep sections aligned */
+  scroll-snap-type: y mandatory;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+/* --- SIDEBAR NAVIGATION --- */
 nav {
   background-color: #ffffff;
-  padding: 20px 0;
-  position: relative;
-  text-align: center;
-  border-bottom: 2px solid orange;
-  margin-bottom: 20px;
+  width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-right: 2px solid orange;
+  flex-shrink: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
 }
 
 nav ul li a {
   text-decoration: none;
   font-size: 25px;
   color: #00b4b4;
-  transition: color 0.3s ease;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 5px 15px;
 }
 
-nav ul li.active a,
+/* Slide-out indicator */
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 3px;
+  background-color: orange;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects */
 nav ul li a:hover {
   color: orange;
 }
 
-.underline {
-  height: 2px;
-  background-color: orange;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+nav ul li a:hover::before {
+  left: -25px;
+  opacity: 1;
 }
 
+/* --- SECTION BACKGROUNDS & SNAP --- */
+.page-section {
+  min-height: 100vh;
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start; /* Locks section to top on scroll */
+}
+
+/* EDIT THESE TO SHOW DIFFERENT BACKGROUNDS TO YOUR AUDIENCE */
+#home {
+  background-color: #ffffff;
+}
+#about {
+  background-color: #f2f7f7;
+} /* Soft Grey-Teal */
+#gallery {
+  background-color: #e6fdfd;
+} /* Light Teal */
+#contact {
+  background-color: #fff9f0;
+  padding-bottom: 250px;
+} /* Soft Cream */
+
+/* --- CONTENT COLUMN --- */
+.content-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- SECTION 1: HOME --- */
 .hero {
   background-image: url("../images/hohero.jpg");
   background-size: cover;
   background-position: center;
   height: 500px;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .hero-text {
   color: white;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: bold;
-  text-align: center;
-}
-
-.featured {
-  padding: 40px 20px;
-  text-align: center;
-  flex: 1;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .featured h2 {
-  margin-bottom: 25px;
+  text-align: center;
   font-weight: normal;
-  letter-spacing: 1px;
-}
-
-.featured p {
-  font-size: 20px;
-  max-width: 700px;
-  margin: 0 auto 40px;
+  font-size: 35px;
+  line-height: 1.4;
   color: #333;
 }
 
-.gallery {
+/* --- SECTION 2: ABOUT --- */
+.about-heading {
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  color: #007c8a;
+}
+.about-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 30px;
+}
+.about-paragraph {
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: center;
+  color: #444;
+}
+
+/* --- SECTION 3: GALLERY --- */
+.gallery-heading {
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  color: #007c8a;
+}
+.gallery-grid {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
 }
-
-.gallery img {
-  width: 200px;
-  height: 200px;
+.gallery-single-item img {
+  width: 350px;
+  height: 500px;
   object-fit: cover;
+  border-radius: 8px;
+}
+.gallery-stacked-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.gallery-stacked-items img {
+  width: 350px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
+/* --- SECTION 4: CONTACT --- */
+.contact-heading {
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  color: #007c8a;
+}
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.contact-image img {
+  width: 400px;
+  border-radius: 8px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 400px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f0f0f0;
+}
+.submit-button {
+  padding: 12px;
+  background: #00b4b4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.submit-button:hover {
+  background-color: orange;
+}
+
+/* --- THE PERSISTENT FOOTER --- */
 footer {
   background-color: #007c8a;
   color: white;
-  padding: 40px 20px;
-  margin-top: auto;
+  padding: 60px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 280px;
+  width: calc(100% - 280px);
+  z-index: 1000;
+  transform: translateY(80%);
+  transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28); /* "Bouncy" reveal */
+}
+
+footer:hover {
+  transform: translateY(0);
+}
+footer::after {
+  content: "▲ INFO & SOCIALS";
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: orange;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .footer-content {
   text-align: center;
 }
-
-.footer-content p {
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
 form {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
-  background-color: #007c8a;
+  margin: 20px 0;
 }
-
 form input {
-  padding: 8px;
+  padding: 10px;
   width: 250px;
+  background: #05aba8;
   border: none;
-  border-radius: 2px 0 0 2px;
-  background-color: #05aba8;
+  color: white;
+  border-radius: 4px 0 0 4px;
 }
-
 form button {
-  padding: 8px 16px;
-  background-color: #f4f4f4;
+  padding: 10px 20px;
+  background: #f4f4f4;
   color: #007c8a;
   border: none;
-  border-radius: 0 2px 2px 0;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 0 4px 4px 0;
 }
-
 .socials {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
+  margin-top: 20px;
 }
-
 .socials i {
-  font-size: 26px;
-  color: white;
+  font-size: 24px;
   border: 2px solid white;
-  border-radius: 6px;
-  padding: 8px;
-  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
-
 .socials i:hover {
-  background-color: white;
+  background: white;
   color: #007c8a;
 }

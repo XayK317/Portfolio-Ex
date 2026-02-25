@@ -3,61 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fine Arts Gallery</title>
+    <title>Kyser's Landing - Portfolio</title>
     <link rel="stylesheet" href="css/indexstyle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="aboutus.html">About</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="underline"></div>
-      </nav>
-    </header>
+    <nav>
+      <ul>
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-    <section class="hero">
-      <div class="hero-text">Kyser's Landing</div>
-    </section>
-
-    <section class="featured">
-      <h2>
-        "But no matter how to get there or where you end up, human beings have
-        this miraculous gift of making that place their home."<br />
-        – Creed Bratton
-      </h2>
-    </section>
-
-    <footer>
-      <div class="footer-content">
-        <p>
-          Lakefront At Keystone, Indianapolis, Indiana<br />
-          (929)-436-2292<br />
-          xkyser.biz@gmail.com
-        </p>
-
-        <form>
-          <input type="email" placeholder="Email" />
-          <button type="submit">Subscribe</button>
-        </form>
-
-        <div class="socials">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-twitter"></i>
+    <div class="content-wrapper">
+      <section id="home" class="page-section">
+        <header class="hero">
+          <div class="hero-text">Kyser's Landing</div>
+        </header>
+        <div class="featured">
+          <h2>
+            "But no matter how to get there or where you end up, human beings
+            have this miraculous gift of making that place their home."<br />
+            – Creed Bratton
+          </h2>
         </div>
-      </div>
-    </footer>
+      </section>
+
+      <section id="about" class="page-section">
+        <div class="container">
+          <h2 class="about-heading">About Us:</h2>
+          <div class="about-image">
+            <img src="../images/au.jpg" alt="About Us Image" />
+          </div>
+          <div class="about-text-sections">
+            <p class="about-paragraph">
+              My name is Xavier Kyser. I am currently a Web Design and App
+              Development major at the Luddy School of Informatics, Computing
+              and Engineering. My passion is to some day develop my own app and
+              website to self publish my own comics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="page-section">
+        <div class="container">
+          <h2 class="gallery-heading">Gallery:</h2>
+          <div class="gallery-grid">
+            <div class="gallery-single-item">
+              <img src="../images/so.png" alt="Acting Role 1" />
+            </div>
+            <div class="gallery-stacked-items">
+              <img src="../images/rr.jpg" alt="Acting Role 2" />
+              <img src="../images/9.jpg" alt="collage" />
+            </div>
+            <div class="gallery-single-item">
+              <img src="../images/10.jpg" alt="sculpture2" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="page-section">
+        <div class="container">
+          <h2 class="contact-heading">Contact Us:</h2>
+          <div class="contact-section">
+            <div class="contact-image">
+              <img src="../images/cu.webp" alt="Contact Image" />
+            </div>
+            <div class="contact-form">
+              <input type="text" placeholder="Name..." />
+              <input type="email" placeholder="Email Address..." />
+              <input type="text" placeholder="Phone Number..." />
+              <textarea placeholder="Message..."></textarea>
+              <button class="submit-button">SUBMIT</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-content">
+          <p>
+            Lakefront At Keystone, Indianapolis, Indiana<br />
+            (317) 771-5589<br />
+            xkyser.biz@gmail.com
+          </p>
+          <form>
+            <input type="email" placeholder="Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="socials">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+          </div>
+        </div>
+      </footer>
+    </div>
 
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
