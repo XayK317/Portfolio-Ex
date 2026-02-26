@@ -133,99 +133,209 @@ nav ul li a:hover::before {
   color: #333;
 }
 
-/* --- SECTION 2: ABOUT --- */
+/* --- SECTION 2: ABOUT (ROUNDED IMAGE) --- */
 .about-heading {
-  font-size: 40px;
-  margin-bottom: 30px;
+  font-size: 50px;
+  margin-bottom: 40px;
   text-decoration: underline;
   color: #007c8a;
+  text-align: left;
+  padding-left: 20px;
 }
+
 .about-image img {
   width: 100%;
-  max-width: 800px;
-  border-radius: 8px;
+  max-width: 500px; /* Adjusted size for a better circular look */
+
+  /* The "Circle" Logic */
+  aspect-ratio: 1 / 1; /* Forces the image to be square */
+  border-radius: 50%; /* Makes the square a perfect circle */
+  object-fit: cover; /* Prevents the image from stretching */
+
+  border: 5px solid #007c8a; /* Optional: adds a frame to define the circle */
   display: block;
-  margin: 0 auto 30px;
+  margin: 0 auto 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 .about-paragraph {
-  font-size: 40px;
+  font-size: 32px; /* Slightly reduced for better readability next to a large circle */
   line-height: 1.6;
   text-align: center;
   color: #444;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* --- SECTION 3: GALLERY --- */
+/* --- SECTION 3: GALLERY (HORIZONTAL ALIGNMENT) --- */
 .gallery-heading {
-  font-size: 40px;
-  margin-bottom: 30px;
+  font-size: 50px;
+  margin-bottom: 40px;
   text-decoration: underline;
   color: #007c8a;
+  text-align: left;
+  padding-left: 20px;
 }
+
 .gallery-grid {
   display: flex;
+  flex-direction: row; /* Force horizontal */
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 20px; /* Tighter gap to help horizontal fit */
+  flex-wrap: nowrap; /* Prevents wrapping to a second line */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 50px 20px;
 }
+
+/* Base style for gallery links */
+.gallery-grid a {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-grid a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* SLIGHTLY SMALLER SINGLE ITEMS */
 .gallery-single-item img {
-  width: 350px;
-  height: 500px;
+  width: 380px; /* Reduced from 500px to fit horizontally */
+  height: 550px; /* Adjusted height to keep a nice portrait ratio */
   object-fit: cover;
-  border-radius: 8px;
+  display: block;
 }
+
+/* SLIGHTLY SMALLER STACKED ITEMS */
 .gallery-stacked-items {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-.gallery-stacked-items img {
-  width: 350px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 8px;
+  gap: 20px; /* Matches the grid gap */
 }
 
-/* --- SECTION 4: CONTACT --- */
+.gallery-stacked-items img {
+  width: 380px; /* Matches single item width */
+  height: 265px; /* Perfectly fits 2 stacked (265+265+20=550) */
+  object-fit: cover;
+  display: block;
+}
+
+/* --- RESPONSIVE: Only wrap when the screen is too small --- */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    flex-wrap: wrap; /* Allows wrapping only on smaller tablets */
+    justify-content: center;
+  }
+
+  .gallery-single-item img,
+  .gallery-stacked-items img {
+    width: 340px; /* Scales down further for smaller desktops */
+  }
+  .gallery-single-item img {
+    height: 480px;
+  }
+  .gallery-stacked-items img {
+    height: 230px;
+  }
+}
+/* --- SECTION 4: CONTACT (ENLARGED) --- */
 .contact-heading {
-  font-size: 40px;
-  margin-bottom: 30px;
+  font-size: 50px; /* Increased from 40px */
+  margin-bottom: 50px; /* More space below heading */
   text-decoration: underline;
   color: #007c8a;
+  text-align: left;
+  padding-left: 20px;
 }
+
 .contact-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+  flex-direction: row; /* Side by side */
+  flex-wrap: nowrap; /* Keep them side by side on desktop */
+  gap: 60px; /* Wider gap between image and form */
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1400px; /* Allows the section to spread out more */
+  margin: 0 auto;
+  width: 95%;
+}
+
+.contact-image {
+  flex: 1; /* Allow to grow */
+  display: flex;
   justify-content: center;
 }
+
 .contact-image img {
-  width: 400px;
-  border-radius: 8px;
+  width: 100%; /* Fill the flex container */
+  max-width: 650px; /* Increased from 400px */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
 .contact-form {
+  flex: 1; /* Allow to grow */
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 400px;
+  gap: 20px; /* More space between inputs */
+  max-width: 650px; /* Increased from 400px */
+  width: 100%;
 }
+
 .contact-form input,
 .contact-form textarea {
-  padding: 12px;
+  padding: 18px; /* Larger hit area for typing */
+  font-size: 18px; /* Larger text */
   border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #f0f0f0;
+  border-radius: 6px;
+  background: #f9f9f9;
+  width: 100%;
+  font-family: inherit;
 }
+
+.contact-form textarea {
+  min-height: 200px; /* Taller message box */
+  resize: vertical;
+}
+
 .submit-button {
-  padding: 12px;
+  padding: 20px; /* Beefier button */
   background: #00b4b4;
   color: white;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  font-size: 20px; /* Larger button text */
+  letter-spacing: 1px;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .submit-button:hover {
   background-color: orange;
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 1100px) {
+  .contact-section {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    align-items: center;
+  }
+
+  .contact-image img,
+  .contact-form {
+    max-width: 100%; /* Fill screen width on mobile */
+  }
 }
 
 /* --- THE PERSISTENT FOOTER --- */
