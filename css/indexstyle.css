@@ -142,7 +142,7 @@ nav ul li a:hover::before {
 }
 .about-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   border-radius: 8px;
   display: block;
   margin: 0 auto 30px;
