@@ -120,17 +120,28 @@ nav ul li a:hover::before {
 
 .hero-text {
   color: white;
-  font-size: 80px;
+  font-size: 150px;
   font-weight: bold;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* --- SECTION 1: HOME FEATURED QUOTE --- */
+.featured {
+  display: flex; /* Enables Flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 200px; /* Gives the quote some vertical space */
+  padding: 40px;
+}
+
 .featured h2 {
-  text-align: center;
+  text-align: center; /* Centers the lines of text relative to each other */
+  max-width: 900px; /* Prevents the quote from stretching too wide */
   font-weight: normal;
   font-size: 40px;
   line-height: 1.4;
   color: #333;
+  margin: 0 auto; /* Standard centering fallback */
 }
 
 /* --- SECTION 2: ABOUT (ROUNDED IMAGE) --- */
@@ -266,78 +277,167 @@ nav ul li a:hover::before {
   margin: 0 auto;
   width: 95%;
 }
-
 .contact-image {
-  flex: 1; /* Allow to grow */
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center; /* Ensures vertical centering in the flex container */
 }
 
 .contact-image img {
-  width: 100%; /* Fill the flex container */
-  max-width: 650px; /* Increased from 400px */
+  width: 100%;
+  max-width: 650px;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  /* Remove the boxy background elements */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+
+  /* OPTIONAL: Adds a shadow that follows the shape of your transparent image 
+     instead of a rectangular box. Remove this line if you want it perfectly flat. */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+
+  display: block;
+} /* --- SECTION 3: GALLERY (ULTRA-SCALE + HOVER) --- */
+.gallery-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 34px;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 100px 20px;
 }
 
-.contact-form {
-  flex: 1; /* Allow to grow */
+/* Base style for gallery links with hover transition */
+.gallery-grid a {
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  /* The "Secret Sauce" for smooth movement */
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease;
+}
+
+/* HOVER CAPABILITIES */
+.gallery-grid a:hover {
+  transform: translateY(-8px); /* Lifted slightly more for the large scale */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Deeper shadow on hover */
+}
+
+/* MASSIVE SINGLE ITEMS */
+.gallery-single-item img {
+  width: 638px;
+  height: 924px;
+  object-fit: cover;
+  display: block;
+}
+
+/* MASSIVE STACKED ITEMS */
+.gallery-stacked-items {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* More space between inputs */
-  max-width: 650px; /* Increased from 400px */
+  gap: 34px;
+}
+
+.gallery-stacked-items img {
+  width: 638px;
+  height: 445px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1920px) {
+  .gallery-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .gallery-single-item img,
+  .gallery-stacked-items img {
+    width: 550px;
+    max-width: 95vw;
+  }
+
+  .gallery-single-item img {
+    height: 800px;
+  }
+
+  .gallery-stacked-items img {
+    height: 387.5px;
+    gap: 25px;
+  }
+
+  .gallery-stacked-items {
+    gap: 25px;
+  }
+}
+/* --- SECTION 4: CONTACT FORM (40% UPSCALE) --- */
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px; /* Original 20px * 1.4 */
+  max-width: 910px; /* Original 650px * 1.4 */
   width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea {
-  padding: 18px; /* Larger hit area for typing */
-  font-size: 18px; /* Larger text */
+  padding: 25px; /* Original 18px * 1.4 */
+  font-size: 25px; /* Original 18px * 1.4 */
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px; /* Original 6px * 1.4 (rounded up) */
   background: #f9f9f9;
   width: 100%;
   font-family: inherit;
 }
 
 .contact-form textarea {
-  min-height: 200px; /* Taller message box */
+  min-height: 280px; /* Original 200px * 1.4 */
   resize: vertical;
 }
 
 .submit-button {
-  padding: 20px; /* Beefier button */
+  padding: 28px; /* Original 20px * 1.4 */
   background: #00b4b4;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px; /* Original 6px * 1.4 */
   cursor: pointer;
   font-weight: bold;
-  font-size: 20px; /* Larger button text */
+  font-size: 28px; /* Original 20px * 1.4 */
   letter-spacing: 1px;
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .submit-button:hover {
   background-color: orange;
-  transform: translateY(-3px); /* Slight lift on hover */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px); /* Original -3px * 1.4 (rounded) */
+  box-shadow: 0 7px 21px rgba(0, 0, 0, 0.1); /* Original 5px/15px * 1.4 */
 }
 
-/* --- RESPONSIVE FIX --- */
-@media (max-width: 1100px) {
+/* --- RESPONSIVE FIX (ADJUSTED BREAKPOINT) --- */
+@media (max-width: 1400px) {
+  /* Increased from 1100px to accommodate the new width */
   .contact-section {
-    flex-direction: column; /* Stack vertically on smaller screens */
+    flex-direction: column;
     align-items: center;
+    gap: 40px; /* Added gap for stacked layout */
   }
 
   .contact-image img,
   .contact-form {
-    max-width: 100%; /* Fill screen width on mobile */
+    max-width: 100%;
   }
 }
-
 /* --- THE PERSISTENT FOOTER --- */
 footer {
   background-color: #007c8a;
