@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery Deep Dive - Kyser's Landing</title>
-    <link rel="stylesheet" href="css/indexstyle.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -15,76 +15,76 @@
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#gallery" class="active">Gallery</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
 
     <div class="content-wrapper">
       <section id="item1" class="page-section">
-        <div class="gal-detail-container">
-          <div class="gal1-image">
-            <img src="../images/so.png" alt="Acting Role 1" />
-          </div>
-          <div class="gal1-text">
-            <h2 class="gallery-heading">Acting Role 1</h2>
-            <p>
-              Detailed insight into this specific role. By placing the heading
-              inside the text div, it stays aligned to the right side with the
-              description.
-            </p>
-          </div>
+        <div class="gal-image-wrapper">
+          <img src="../images/so.png" alt="Acting Role 1" />
+        </div>
+        <div class="gal-text-content">
+          <h2 class="gallery-heading">Acting Role 1</h2>
+          <p class="gallery-description">
+            Detailed insight into this specific role. This layout ensures that
+            your narrative stays separate from the visual, creating a clean,
+            professional feel for each piece in the portfolio.
+          </p>
         </div>
       </section>
 
       <section id="item2" class="page-section">
-        <div class="gal-detail-container">
-          <div class="gal1-image">
-            <img src="../images/rr.jpg" alt="Acting Role 2" />
-          </div>
-          <div class="gal1-text">
-            <h2 class="gallery-heading">Acting Role 2</h2>
-            <p>
-              Description for the second piece. Notice how the scroll-snap keeps
-              this entire container locked in view as you move down.
-            </p>
-          </div>
+        <div class="gal-image-wrapper">
+          <img src="../images/rr.jpg" alt="Acting Role 2" />
+        </div>
+        <div class="gal-text-content">
+          <h2 class="gallery-heading">Acting Role 2</h2>
+          <p class="gallery-description">
+            Description for the second piece. Clicking the thumbnail on the home
+            page brings you directly here using anchor IDs.
+          </p>
         </div>
       </section>
 
       <section id="item3" class="page-section">
-        <div class="gal-detail-container">
-          <div class="gal1-image">
-            <img src="../images/9.jpg" alt="collage" />
-          </div>
-          <div class="gal1-text">
-            <h2 class="gallery-heading">Collage</h2>
-            <p>
-              Details about the artistic process, the choice of materials, and
-              the inspiration behind this collage.
-            </p>
-          </div>
+        <div class="gal-image-wrapper">
+          <img src="../images/code.jpg.png" alt="Collage One" />
+        </div>
+        <div class="gal-text-content">
+          <h2 class="gallery-heading">Artistic Collage</h2>
+          <p class="gallery-description">
+            Details about the artistic process and the choice of materials. This
+            section uses the same image height as Item 2 for symmetry.
+          </p>
         </div>
       </section>
 
       <section id="item4" class="page-section">
-        <div class="gal-detail-container">
-          <div class="gal1-image">
-            <img src="../images/10.jpg" alt="collage" />
-          </div>
-          <div class="gal1-text">
-            <h2 class="gallery-heading">Collage</h2>
-            <p>
-              Details about the artistic process, the choice of materials, and
-              the inspiration behind this collage.
-            </p>
-          </div>
+        <div class="gal-image-wrapper">
+          <img src="../images/10.jpg" alt="Collage Two" />
+        </div>
+        <div class="gal-text-content">
+          <h2 class="gallery-heading">Visual Composition</h2>
+          <p class="gallery-description">
+            Expanding on the creative vision for this piece. The tall scale of
+            this image mirrors the first section's height.
+          </p>
         </div>
       </section>
 
       <footer>
         <div class="footer-content">
-          <p>Indianapolis, Indiana | xkyser.biz@gmail.com</p>
+          <p>
+            Lakefront At Keystone, Indianapolis, Indiana<br />
+            (317) 771-5589<br />
+            xkyser.biz@gmail.com
+          </p>
+          <form>
+            <input type="email" placeholder="Email" />
+            <button type="submit">Subscribe</button>
+          </form>
           <div class="socials">
             <i class="fab fa-facebook"></i>
             <i class="fab fa-instagram"></i>
@@ -93,5 +93,10 @@
         </div>
       </footer>
     </div>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
